@@ -5,14 +5,12 @@ import { AppContextType } from '../types';
 
 interface Props {
   answerNumber: 1 | 2 | 3 | 4;
-  currentQuestionNumber: number;
 }
 
-const AnswerBtn: React.FC<Props> = ({
-  answerNumber,
-  currentQuestionNumber,
-}) => {
-  const { questionsData } = useContext(AppContext) as AppContextType;
+const AnswerBtn: React.FC<Props> = ({ answerNumber }) => {
+  const { questionsData, currentQuestionNumber } = useContext(
+    AppContext
+  ) as AppContextType;
 
   const handleClick = () => {
     console.log(currentQuestionNumber);

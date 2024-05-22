@@ -4,12 +4,12 @@ import QuestionBtn from './QuestionBtn';
 import { AppContext } from '../context/AppContext';
 import { AppContextType } from '../types';
 
-interface Props {
-  questionNumber: number | null;
-}
+interface Props {}
 
-const Navigation: React.FC<Props> = ({ questionNumber }) => {
-  const { questionsData } = useContext(AppContext) as AppContextType;
+const Navigation: React.FC<Props> = () => {
+  const { questionsData, currentQuestionNumber } = useContext(
+    AppContext
+  ) as AppContextType;
 
   return (
     <nav className='flex flex-wrap gap-3 justify-center mb-10'>
@@ -17,7 +17,7 @@ const Navigation: React.FC<Props> = ({ questionNumber }) => {
         <QuestionBtn
           key={number}
           questionNumber={number}
-          active={answered || questionNumber === number}
+          active={answered || currentQuestionNumber === number}
         />
       ))}
     </nav>
