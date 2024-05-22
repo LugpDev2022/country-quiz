@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 interface Props {
   questionNumber: number;
   active?: boolean;
@@ -5,12 +6,12 @@ interface Props {
 
 const QuestionBtn: React.FC<Props> = ({ questionNumber, active = false }) => {
   return (
-    <a
-      href='#'
+    <Link
+      to={`/?question=${questionNumber}`}
       className={active ? 'question-btn-active' : 'question-btn gradient'}
     >
       {questionNumber}
-    </a>
+    </Link>
   );
 };
 

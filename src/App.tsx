@@ -1,7 +1,6 @@
 import AnswerBtn from './components/AnswerBtn';
-import QuestionBtn from './components/QuestionBtn';
+import Navigation from './components/Navigation';
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const question = 'Which country is Kuala Lumpur the capital';
 
 const App = () => {
@@ -11,11 +10,7 @@ const App = () => {
         Country Quiz
       </h1>
 
-      <nav className='flex flex-wrap gap-3 justify-center mb-10'>
-        {numbers.map((number) => (
-          <QuestionBtn questionNumber={number} />
-        ))}
-      </nav>
+      <Navigation />
 
       <h2 className='text-xl font-semibold mb-10'>{question}</h2>
 
