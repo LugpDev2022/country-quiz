@@ -24,7 +24,16 @@ const AppContextProvider: React.FC<Props> = ({ children }) => {
     dispatch({ type: 'SET_CURRENT_QUESTION_NUMBER', payload: questionNumber });
   }, [search]);
 
-  return <AppContext.Provider value={state}>{children}</AppContext.Provider>;
+  const sendAnswer = (answerNumber: 1 | 2 | 3 | 4) => {
+    console.log('answer');
+    console.log(answerNumber);
+  };
+
+  return (
+    <AppContext.Provider value={{ ...state, sendAnswer }}>
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 export default AppContextProvider;

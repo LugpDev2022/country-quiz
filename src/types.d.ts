@@ -6,7 +6,11 @@ export type QuestionData = {
   answers: string[];
 };
 
-export type AppContextType = {
+export interface AppState {
   currentQuestionNumber: number;
   questionsData: QuestionData[];
-};
+}
+
+export interface AppContextType extends AppState {
+  sendAnswer: (answerNumber: 1 | 2 | 3 | 4) => void;
+}

@@ -8,13 +8,12 @@ interface Props {
 }
 
 const AnswerBtn: React.FC<Props> = ({ answerNumber }) => {
-  const { questionsData, currentQuestionNumber } = useContext(
+  const { questionsData, currentQuestionNumber, sendAnswer } = useContext(
     AppContext
   ) as AppContextType;
 
   const handleClick = () => {
-    console.log(currentQuestionNumber);
-    console.log('answered ' + answerNumber);
+    sendAnswer(answerNumber);
   };
 
   return (
