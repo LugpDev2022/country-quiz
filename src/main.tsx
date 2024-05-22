@@ -14,7 +14,11 @@ import './index.css';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: (
+      <AppContextProvider>
+        <App />
+      </AppContextProvider>
+    ),
   },
   {
     path: '/*',
@@ -24,8 +28,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <AppContextProvider>
-      <RouterProvider router={router} />
-    </AppContextProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

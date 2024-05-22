@@ -3,9 +3,9 @@ import { QuestionData } from './types';
 export const questions: QuestionData[] = [
   {
     number: 1,
-    answered: false,
+    answered: true,
     question: 'Which country is Kuala Lumpur the capital',
-    selectedAnswer: null,
+    selectedAnswer: 2,
     answers: [],
   },
   {

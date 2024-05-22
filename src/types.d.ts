@@ -7,5 +7,6 @@ export type QuestionData = {
 };
 
 export type AppContextType = {
+  currentQuestionNumber: number;
   questionsData: QuestionData[];
 };

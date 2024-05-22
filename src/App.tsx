@@ -26,10 +26,10 @@ const App = () => {
       <h2 className='text-xl font-semibold mb-10'>{question}</h2>
 
       <section className='grid grid-cols-2 gap-5'>
-        <AnswerBtn />
-        <AnswerBtn />
-        <AnswerBtn />
-        <AnswerBtn />
+        <AnswerBtn answerNumber={1} currentQuestionNumber={questionNumber} />
+        <AnswerBtn answerNumber={2} currentQuestionNumber={questionNumber} />
+        <AnswerBtn answerNumber={3} currentQuestionNumber={questionNumber} />
+        <AnswerBtn answerNumber={4} currentQuestionNumber={questionNumber} />
       </section>
     </main>
   );
