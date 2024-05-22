@@ -3,7 +3,48 @@ import queryString from 'query-string';
 
 import QuestionBtn from './QuestionBtn';
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const questions = [
+  {
+    number: 1,
+    answered: false,
+  },
+  {
+    number: 2,
+    answered: false,
+  },
+  {
+    number: 3,
+    answered: false,
+  },
+  {
+    number: 4,
+    answered: false,
+  },
+  {
+    number: 5,
+    answered: false,
+  },
+  {
+    number: 6,
+    answered: false,
+  },
+  {
+    number: 7,
+    answered: false,
+  },
+  {
+    number: 8,
+    answered: false,
+  },
+  {
+    number: 9,
+    answered: false,
+  },
+  {
+    number: 10,
+    answered: false,
+  },
+];
 
 const Navigation = () => {
   const { search } = useLocation();
@@ -12,11 +53,11 @@ const Navigation = () => {
 
   return (
     <nav className='flex flex-wrap gap-3 justify-center mb-10'>
-      {numbers.map((number) => (
+      {questions.map(({ number, answered }) => (
         <QuestionBtn
           key={number}
           questionNumber={number}
-          active={parseInt(question) === number}
+          active={answered || parseInt(question) === number}
         />
       ))}
     </nav>
