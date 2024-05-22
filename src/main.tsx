@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {
+  RouterProvider,
+  createBrowserRouter,
+  redirect,
+} from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
 
@@ -8,6 +12,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+  },
+  {
+    path: '/*',
+    loader: () => redirect('/'),
   },
 ]);
 
