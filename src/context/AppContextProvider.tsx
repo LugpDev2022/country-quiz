@@ -1,14 +1,12 @@
 import { useState } from 'react';
-
 import { AppContext } from './AppContext';
-import { createQuestionsData } from '../lib/createQuestionsData';
+import { questions } from '../questions';
 
 interface Props {
   children: React.ReactNode;
 }
 
 const AppContextProvider: React.FC<Props> = ({ children }) => {
-  const questions = createQuestionsData(10);
   const [questionsData] = useState(questions);
 
   const value = {
