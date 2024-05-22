@@ -54,13 +54,13 @@ body {
 
 .question-btn,
 .question-btn-active {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
   align-items: center;
   border-radius: 999px;
+  display: flex;
+  height: 40px;
+  justify-content: center;
   transition: background 300ms linear;
+  width: 40px;
 }
 
 .question-btn {
