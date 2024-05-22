@@ -42,3 +42,21 @@ body {
   border-radius: 10px;
   text-align: center;
 }
+
+.question-btn,
+.question-btn-active {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  transition: background 300ms linear;
+}
+
+.question-btn {
+  background: #393f6f;
+}
+.question-btn-active {
+  background: linear-gradient(#e65895, #bc6be8);
+}
