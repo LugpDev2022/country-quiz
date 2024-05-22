@@ -59,18 +59,49 @@ body {
   display: flex;
   height: 40px;
   justify-content: center;
+  position: relative;
   transition: background 300ms linear;
   width: 40px;
+  z-index: 1;
 }
 
 .question-btn {
   background: #393f6f;
 }
 .question-btn-active {
-  background: linear-gradient(#e65895, #bc6be8);
+  background: linear-gradient(to right top, #e65895, #bc6be8);
 }
 
 .answer-btn {
   background: #393f6f;
+  border-radius: 10px;
   font-weight: 600;
+  height: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.gradient::before {
+  background-image: linear-gradient(to right top, #e65895, #bc6be8);
+  bottom: 0;
+  content: '';
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 300ms linear;
+  z-index: -1;
+}
+
+.answer-btn::before {
+  border-radius: 10px;
+}
+
+.question-btn::before {
+  border-radius: 999px;
+}
+
+.gradient:hover::before {
+  opacity: 1;
 }
