@@ -1,24 +1,19 @@
 import { useContext } from 'react';
-import queryString from 'query-string';
 import { useLocation } from 'react-router';
 
 import AnswerBtn from './components/AnswerBtn';
 import Navigation from './components/Navigation';
 import { AppContext } from './context/AppContext';
 import { AppContextType } from './types';
+import { getQuestionNumber } from './lib/getQuestionNumber';
 
 const App = () => {
   const { questionsData } = useContext(AppContext) as AppContextType;
-
   const { search } = useLocation();
 
-  const { question: questionNumber } = queryString.parse(search) as {
-    question: string;
-  };
+  const questionNumber = getQuestionNumber(search);
 
-  const parsedQuestionNumber = questionNumber ? parseInt(questionNumber) : 1;
-
-  const { question } = questionsData[parsedQuestionNumber - 1];
+  const { question } = questionsData[questionNumber - 1];
 
   return (
     <main className='main'>
@@ -26,7 +21,7 @@ const App = () => {
         Country Quiz
       </h1>
 
-      <Navigation questionNumber={parsedQuestionNumber} />
+      <Navigation questionNumber={questionNumber} />
 
       <h2 className='text-xl font-semibold mb-10'>{question}</h2>
 
