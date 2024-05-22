@@ -17,7 +17,7 @@ const App = () => {
         ))}
       </nav>
 
-      <h2 className='text-lg font-semibold mb-10'>{question}</h2>
+      <h2 className='text-xl font-semibold mb-10'>{question}</h2>
 
       <section className='grid grid-cols-2 gap-5'>
         <AnswerBtn />

@@ -19,6 +19,13 @@
     url('fonts/BeVietnamPro-Regular.ttf') format('opentype');
 }
 
+@font-face {
+  font-family: BeVietnamPro;
+  font-weight: 600;
+  src: local('BeVietnamPro'),
+    url('fonts/BeVietnamPro-SemiBold.ttf') format('opentype');
+}
+
 /* Styles */
 
 body {
@@ -65,4 +72,5 @@ body {
 
 .answer-btn {
   background: #393f6f;
+  font-weight: 600;
 }
