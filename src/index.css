@@ -62,3 +62,7 @@ body {
 .question-btn-active {
   background: linear-gradient(#e65895, #bc6be8);
 }
+
+.answer-btn {
+  background: #393f6f;
+}

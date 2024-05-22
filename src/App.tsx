@@ -1,3 +1,4 @@
+import AnswerBtn from './components/AnswerBtn';
 import QuestionBtn from './components/QuestionBtn';
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -16,7 +17,14 @@ const App = () => {
         ))}
       </nav>
 
-      <h2 className='text-lg font-semibold'>{question}</h2>
+      <h2 className='text-lg font-semibold mb-10'>{question}</h2>
+
+      <section className='grid grid-cols-2 gap-5'>
+        <AnswerBtn />
+        <AnswerBtn />
+        <AnswerBtn />
+        <AnswerBtn />
+      </section>
     </main>
   );
 };
