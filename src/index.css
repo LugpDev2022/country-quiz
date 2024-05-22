@@ -37,7 +37,8 @@ body {
 }
 
 .main {
-  background-color: #393f6e;
+  background-color: #343964;
   padding: 20px;
   border-radius: 10px;
+  text-align: center;
 }
