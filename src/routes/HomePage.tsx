@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 
-import AnswerBtn from './components/AnswerBtn';
-import Navigation from './components/Navigation';
-import { AppContext } from './context/AppContext';
-import { AppContextType } from './types';
+import AnswerBtn from '../components/AnswerBtn';
+import Navigation from '../components/Navigation';
+import { AppContext } from '../context/AppContext';
+import { AppContextType } from '../types';
 
-const App = () => {
+const HomePage = () => {
   const { questionsData, currentQuestionNumber } = useContext(
     AppContext
   ) as AppContextType;
@@ -40,4 +40,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default HomePage;

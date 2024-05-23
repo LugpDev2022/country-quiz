@@ -6,8 +6,8 @@ import {
   redirect,
 } from 'react-router-dom';
 
-import App from './App.tsx';
 import AppContextProvider from './context/AppContextProvider.tsx';
+import HomePage from './routes/HomePage.tsx';
 
 import './index.css';
 
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <App />,
+        element: <HomePage />,
       },
       {
         path: '/results',
