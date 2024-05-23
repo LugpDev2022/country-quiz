@@ -35,12 +35,13 @@ const AnswerBtn: React.FC<Props> = ({
       {children}
 
       {selected ? (
-        <img
-          src={correct ? '/check.svg' : '/cross.svg'}
-          alt={correct ? 'check' : 'cross'}
-        />
+        correct ? (
+          <img src='/check.svg' alt='check' />
+        ) : (
+          <img src='/cross.svg' alt='cross' />
+        )
       ) : (
-        <></>
+        correct && selectedAnswer && <img src='/check.svg' alt='check' />
       )}
     </button>
   );
