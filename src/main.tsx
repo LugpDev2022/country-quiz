@@ -14,11 +14,17 @@ import './index.css';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <AppContextProvider>
-        <App />
-      </AppContextProvider>
-    ),
+    element: <AppContextProvider />,
+    children: [
+      {
+        path: '/',
+        element: <App />,
+      },
+      {
+        path: '/results',
+        element: <h2>Results</h2>,
+      },
+    ],
   },
   {
     path: '/*',
