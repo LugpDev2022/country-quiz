@@ -37,8 +37,12 @@ const AppContextProvider: React.FC<Props> = () => {
     dispatch({ type: 'SET_ANSWER', payload: { questionNumber, answerNumber } });
   };
 
+  const handlePlayAgain = () => {
+    dispatch({ type: 'RESET_STATE', payload: questions });
+  };
+
   return (
-    <AppContext.Provider value={{ ...state, sendAnswer }}>
+    <AppContext.Provider value={{ ...state, sendAnswer, handlePlayAgain }}>
       <Outlet />
     </AppContext.Provider>
   );

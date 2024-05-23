@@ -1,9 +1,9 @@
 import { AppState } from '../types';
 
 type Action = {
-  type: 'SET_CURRENT_QUESTION_NUMBER' | 'SET_ANSWER';
+  type: 'SET_CURRENT_QUESTION_NUMBER' | 'SET_ANSWER' | 'RESET_STATE';
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  payload: any;
+  payload?: any;
 };
 
 export const appReducer = (state: AppState, action: Action): AppState => {
@@ -24,6 +24,13 @@ export const appReducer = (state: AppState, action: Action): AppState => {
 
     case 'SET_CURRENT_QUESTION_NUMBER':
       return { ...state, currentQuestionNumber: action.payload as number };
+
+    case 'RESET_STATE':
+      return {
+        completedQuestions: 0,
+        currentQuestionNumber: 1,
+        questionsData: action.payload,
+      };
 
     default:
       return state;

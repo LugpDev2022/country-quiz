@@ -5,7 +5,9 @@ import { Navigate } from 'react-router';
 import { questions } from '../questions';
 
 const ResultsPage = () => {
-  const { completedQuestions } = useContext(AppContext) as AppContextType;
+  const { completedQuestions, handlePlayAgain } = useContext(
+    AppContext
+  ) as AppContextType;
 
   if (completedQuestions < questions.length) return <Navigate to='/' />;
 
@@ -19,7 +21,12 @@ const ResultsPage = () => {
 
       <p className='mb-10'>You answer 4/10 correctly</p>
 
-      <button className='play-again-btn font-semibold'>Play again</button>
+      <button
+        className='play-again-btn font-semibold'
+        onClick={handlePlayAgain}
+      >
+        Play again
+      </button>
     </main>
   );
 };
