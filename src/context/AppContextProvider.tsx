@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from 'react';
-import { Outlet, useLocation } from 'react-router';
+import { Outlet, useLocation, useNavigate } from 'react-router';
 
 import { AppContext } from './AppContext';
 import { questions } from '../questions';
@@ -10,6 +10,7 @@ interface Props {}
 
 const AppContextProvider: React.FC<Props> = () => {
   const { search } = useLocation();
+  const navigate = useNavigate();
   const [state, dispatch] = useReducer(appReducer, {}, () => {
     const currentQuestionNumber = getQuestionNumber(search);
 
@@ -27,7 +28,9 @@ const AppContextProvider: React.FC<Props> = () => {
   }, [search]);
 
   useEffect(() => {
-    console.log(state.completedQuestions);
+    if (state.completedQuestions !== state.questionsData.length) return;
+
+    navigate('/results');
   }, [state.completedQuestions]);
 
   const sendAnswer = (questionNumber: number, answerNumber: 1 | 2 | 3 | 4) => {
