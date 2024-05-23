@@ -13,11 +13,11 @@ const Navigation: React.FC<Props> = () => {
 
   return (
     <nav className='flex flex-wrap gap-3 justify-center mb-10'>
-      {questionsData.map(({ number, answered }) => (
+      {questionsData.map(({ number, selectedAnswer }) => (
         <QuestionBtn
           key={number}
           questionNumber={number}
-          active={answered || currentQuestionNumber === number}
+          active={!!selectedAnswer || currentQuestionNumber === number}
         />
       ))}
     </nav>
