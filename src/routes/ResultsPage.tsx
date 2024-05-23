@@ -9,7 +9,19 @@ const ResultsPage = () => {
 
   if (completedQuestions < questions.length) return <Navigate to='/' />;
 
-  return <div>ResultsPage</div>;
+  return (
+    <main className='main-results'>
+      <img src='/congrats.svg' alt='congrats' />
+
+      <h1 className='mt-2.5 mb-5 text-2xl px-2'>
+        Congrats! You completed the quiz
+      </h1>
+
+      <p className='mb-10'>You answer 4/10 correctly</p>
+
+      <button className='play-again-btn font-semibold'>Play again</button>
+    </main>
+  );
 };
 
 export default ResultsPage;
