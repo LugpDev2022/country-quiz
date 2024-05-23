@@ -10,6 +10,7 @@ import AppContextProvider from './context/AppContextProvider.tsx';
 import HomePage from './routes/HomePage.tsx';
 
 import './index.css';
+import ResultsPage from './routes/ResultsPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/results',
-        element: <h2>Results</h2>,
+        element: <ResultsPage />,
       },
     ],
   },
