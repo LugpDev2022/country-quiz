@@ -107,6 +107,10 @@ body {
   opacity: 1;
 }
 
+.gradient:disabled:hover::before {
+  opacity: 0;
+}
+
 .gradient-stay::before {
-  opacity: 1;
+  opacity: 1 !important;
 }

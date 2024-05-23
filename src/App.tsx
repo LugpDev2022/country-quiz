@@ -10,7 +10,7 @@ const App = () => {
     AppContext
   ) as AppContextType;
 
-  const { question, answers, correctAnswer } =
+  const { question, answers, correctAnswer, selectedAnswer } =
     questionsData[currentQuestionNumber - 1];
 
   return (
@@ -30,6 +30,7 @@ const App = () => {
             answerNumber={i + 1}
             key={answer}
             correct={correctAnswer === i + 1}
+            selected={selectedAnswer === i + 1}
           >
             {answer}
           </AnswerBtn>

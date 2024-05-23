@@ -16,18 +16,23 @@ const AnswerBtn: React.FC<Props> = ({
   correct = false,
   selected = false,
 }) => {
-  const { sendAnswer, currentQuestionNumber } = useContext(
+  const { sendAnswer, questionsData, currentQuestionNumber } = useContext(
     AppContext
   ) as AppContextType;
+
+  const { selectedAnswer } = questionsData[currentQuestionNumber - 1];
 
   const handleClick = () => {
     sendAnswer(currentQuestionNumber, answerNumber);
   };
 
+  console.log(selectedAnswer);
+
   return (
     <button
       onClick={handleClick}
       className={`answer-btn gradient ${selected ? 'gradient-stay' : ''}`}
+      disabled={!!selectedAnswer}
     >
       {children}
     </button>
