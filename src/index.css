@@ -106,3 +106,7 @@ body {
 .gradient:hover::before {
   opacity: 1;
 }
+
+.gradient-stay::before {
+  opacity: 1;
+}
