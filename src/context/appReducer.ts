@@ -9,13 +9,14 @@ type Action = {
 export const appReducer = (state: AppState, action: Action): AppState => {
   switch (action.type) {
     case 'SET_ANSWER':
-      console.log(action.payload);
-      console.log(state.questionsData[action.payload.questionNumber - 1]);
+      // eslint-disable-next-line no-case-declarations
+      const newQuestionsData = state.questionsData.map((question, index) =>
+        index === action.payload.questionNumber - 1
+          ? { ...question, selectedAnswer: action.payload.answerNumber }
+          : question
+      );
 
-      state.questionsData[action.payload.questionNumber - 1].selectedAnswer =
-        action.payload.answerNumber;
-
-      return state;
+      return { ...state, questionsData: newQuestionsData };
 
     case 'SET_CURRENT_QUESTION_NUMBER':
       return { ...state, currentQuestionNumber: action.payload as number };
