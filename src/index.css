@@ -74,10 +74,14 @@ body {
 }
 
 .answer-btn {
+  align-items: center;
   background: #393f6f;
   border-radius: 10px;
+  display: flex;
   font-weight: 600;
+  gap: 10px;
   height: 60px;
+  justify-content: center;
   position: relative;
   z-index: 1;
 }

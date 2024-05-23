@@ -26,8 +26,6 @@ const AnswerBtn: React.FC<Props> = ({
     sendAnswer(currentQuestionNumber, answerNumber);
   };
 
-  console.log(selectedAnswer);
-
   return (
     <button
       onClick={handleClick}
@@ -35,6 +33,15 @@ const AnswerBtn: React.FC<Props> = ({
       disabled={!!selectedAnswer}
     >
       {children}
+
+      {selected ? (
+        <img
+          src={correct ? '/check.svg' : '/cross.svg'}
+          alt={correct ? 'check' : 'cross'}
+        />
+      ) : (
+        <></>
+      )}
     </button>
   );
 };
