@@ -9,6 +9,7 @@ export type QuestionData = {
 export interface AppState {
   currentQuestionNumber: number;
   questionsData: QuestionData[];
+  completedQuestions: number;
 }
 
 export interface AppContextType extends AppState {

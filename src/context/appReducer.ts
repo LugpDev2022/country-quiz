@@ -16,7 +16,11 @@ export const appReducer = (state: AppState, action: Action): AppState => {
           : question
       );
 
-      return { ...state, questionsData: newQuestionsData };
+      return {
+        ...state,
+        questionsData: newQuestionsData,
+        completedQuestions: state.completedQuestions + 1,
+      };
 
     case 'SET_CURRENT_QUESTION_NUMBER':
       return { ...state, currentQuestionNumber: action.payload as number };
