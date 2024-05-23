@@ -25,8 +25,7 @@ const AppContextProvider: React.FC<Props> = ({ children }) => {
   }, [search]);
 
   const sendAnswer = (answerNumber: 1 | 2 | 3 | 4) => {
-    console.log('answer');
-    console.log(answerNumber);
+    dispatch({ type: 'SET_ANSWER', payload: answerNumber });
   };
 
   return (

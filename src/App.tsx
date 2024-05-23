@@ -10,7 +10,8 @@ const App = () => {
     AppContext
   ) as AppContextType;
 
-  const { question } = questionsData[currentQuestionNumber - 1];
+  const { question, answers, correctAnswer } =
+    questionsData[currentQuestionNumber - 1];
 
   return (
     <main className='main'>
@@ -23,10 +24,16 @@ const App = () => {
       <h2 className='text-xl font-semibold mb-10'>{question}</h2>
 
       <section className='grid grid-cols-2 gap-5'>
-        <AnswerBtn answerNumber={1} />
-        <AnswerBtn answerNumber={2} />
-        <AnswerBtn answerNumber={3} />
-        <AnswerBtn answerNumber={4} />
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+        {answers.map((answer, i: any) => (
+          <AnswerBtn
+            answerNumber={i + 1}
+            key={answer}
+            correct={correctAnswer === i + 1}
+          >
+            {answer}
+          </AnswerBtn>
+        ))}
       </section>
     </main>
   );

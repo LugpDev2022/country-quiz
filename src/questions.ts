@@ -10,10 +10,10 @@ export const questions: QuestionData[] = [
   },
   {
     number: 2,
-    answered: false,
     question: 'Which country is Kuala Lumpur the capital 2',
     selectedAnswer: null,
-    answers: [],
+    answers: ['1', '2', '3', '4'],
+    correctAnswer: 2,
   },
   {
     number: 3,
