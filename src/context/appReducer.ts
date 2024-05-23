@@ -10,9 +10,10 @@ export const appReducer = (state: AppState, action: Action): AppState => {
   switch (action.type) {
     case 'SET_ANSWER':
       console.log(action.payload);
-      console.log(state.questionsData[action.payload - 1]);
+      console.log(state.questionsData[action.payload.questionNumber - 1]);
 
-      state.questionsData[action.payload - 1].selectedAnswer = action.payload;
+      state.questionsData[action.payload.questionNumber - 1].selectedAnswer =
+        action.payload.answerNumber;
 
       return state;
 

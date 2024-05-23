@@ -16,10 +16,12 @@ const AnswerBtn: React.FC<Props> = ({
   correct = false,
   selected = false,
 }) => {
-  const { sendAnswer } = useContext(AppContext) as AppContextType;
+  const { sendAnswer, currentQuestionNumber } = useContext(
+    AppContext
+  ) as AppContextType;
 
   const handleClick = () => {
-    sendAnswer(answerNumber);
+    sendAnswer(currentQuestionNumber, answerNumber);
   };
 
   return (

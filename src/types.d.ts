@@ -12,5 +12,5 @@ export interface AppState {
 }
 
 export interface AppContextType extends AppState {
-  sendAnswer: (answerNumber: 1 | 2 | 3 | 4) => void;
+  sendAnswer: (questionNumber: number, answerNumber: 1 | 2 | 3 | 4) => void;
 }

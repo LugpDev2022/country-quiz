@@ -24,8 +24,8 @@ const AppContextProvider: React.FC<Props> = ({ children }) => {
     dispatch({ type: 'SET_CURRENT_QUESTION_NUMBER', payload: questionNumber });
   }, [search]);
 
-  const sendAnswer = (answerNumber: 1 | 2 | 3 | 4) => {
-    dispatch({ type: 'SET_ANSWER', payload: answerNumber });
+  const sendAnswer = (questionNumber: number, answerNumber: 1 | 2 | 3 | 4) => {
+    dispatch({ type: 'SET_ANSWER', payload: { questionNumber, answerNumber } });
   };
 
   return (
