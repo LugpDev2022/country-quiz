@@ -1,4 +1,4 @@
-import { QuestionData } from '../types';
+import type { QuestionData } from '../types';
 
 /**
  * Counts the number of correct answers in a given array of question data.
