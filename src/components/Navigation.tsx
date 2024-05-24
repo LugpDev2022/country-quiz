@@ -13,13 +13,19 @@ const Navigation: React.FC<Props> = () => {
 
   return (
     <nav className='flex flex-wrap gap-3 justify-center mb-10'>
-      {questionsData.map(({ number, selectedAnswer }) => (
-        <QuestionBtn
-          key={number}
-          questionNumber={number}
-          active={!!selectedAnswer || currentQuestionNumber === number}
-        />
-      ))}
+      {questionsData.map(({ question, selectedAnswer }, i) => {
+        const questionNumber = i + 1;
+
+        return (
+          <QuestionBtn
+            key={question}
+            questionNumber={questionNumber}
+            active={
+              !!selectedAnswer || currentQuestionNumber === questionNumber
+            }
+          />
+        );
+      })}
     </nav>
   );
 };

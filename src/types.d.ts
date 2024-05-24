@@ -1,5 +1,4 @@
 export type QuestionData = {
-  number: number;
   question: string;
   correctAnswer: 1 | 2 | 3 | 4;
   selectedAnswer: 1 | 2 | 3 | 4 | null;
