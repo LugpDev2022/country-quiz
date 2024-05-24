@@ -2,32 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fonts  */
-
-/* BeVietnam Pro */
-@font-face {
-  font-family: BeVietnamPro;
-  font-weight: 300;
-  src: local('BeVietnamPro'),
-    url('fonts/BeVietnamPro-Light.ttf') format('opentype');
-}
-
-@font-face {
-  font-family: BeVietnamPro;
-  font-weight: 400;
-  src: local('BeVietnamPro'),
-    url('fonts/BeVietnamPro-Regular.ttf') format('opentype');
-}
-
-@font-face {
-  font-family: BeVietnamPro;
-  font-weight: 600;
-  src: local('BeVietnamPro'),
-    url('fonts/BeVietnamPro-SemiBold.ttf') format('opentype');
-}
-
 /* Styles */
-
 body {
   background-attachment: fixed;
   background-image: url('/bg.jpg');
@@ -36,7 +11,7 @@ body {
   background-size: cover;
   color: white;
   display: grid;
-  font-family: BeVietnamPro;
+  font-family: 'Be Vietnam Pro';
   margin: 0;
   min-height: 100vh;
   place-items: center;
