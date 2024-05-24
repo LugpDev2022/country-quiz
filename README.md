@@ -1,1 +1,1 @@
-# Country Quizz by [@LugpDev2022](https://github.com/LugpDev2022)
+# Country Quiz by [@LugpDev2022](https://github.com/LugpDev2022)
