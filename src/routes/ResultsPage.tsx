@@ -1,15 +1,19 @@
 import { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
-import { AppContextType } from '../types';
 import { Navigate } from 'react-router';
+
+import { AppContext } from '../context/AppContext';
+import { countCorrectAnswers } from '../lib/countCorrectAnswers';
+import { AppContextType } from '../types';
 import { questions } from '../questions';
 
 const ResultsPage = () => {
-  const { completedQuestions, handlePlayAgain } = useContext(
+  const { completedQuestions, handlePlayAgain, questionsData } = useContext(
     AppContext
   ) as AppContextType;
 
   if (completedQuestions < questions.length) return <Navigate to='/' />;
+
+  const correctAnswersNumber = countCorrectAnswers(questionsData);
 
   return (
     <main className='main-results'>
@@ -19,7 +23,7 @@ const ResultsPage = () => {
         Congrats! You completed the quiz
       </h1>
 
-      <p className='mb-10'>You answer 4/10 correctly</p>
+      <p className='mb-10'>You answer {correctAnswersNumber}/10 correctly</p>
 
       <button
         className='play-again-btn font-semibold'

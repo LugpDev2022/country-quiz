@@ -17,7 +17,7 @@ const AppContextProvider: React.FC<Props> = () => {
     return {
       currentQuestionNumber,
       questionsData: questions,
-      completedQuestions: 10,
+      completedQuestions: 0,
     };
   });
 
