@@ -1,6 +1,6 @@
 import { getQuestionNumber } from '../../src/lib/getQuestionNumber';
 
-describe('Tests on parseQuestionNumber', () => {
+describe('Tests on getQuestionNumber', () => {
   test('should return the given value', () => {
     const number = 4;
     const query = `?random=2&question=${number}`;
