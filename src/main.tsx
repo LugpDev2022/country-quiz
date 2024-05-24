@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
+  Outlet,
   RouterProvider,
   createBrowserRouter,
   redirect,
@@ -15,7 +16,11 @@ import ResultsPage from './routes/ResultsPage.tsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <AppContextProvider />,
+    element: (
+      <AppContextProvider>
+        <Outlet />
+      </AppContextProvider>
+    ),
     children: [
       {
         path: '/',

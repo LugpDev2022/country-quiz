@@ -1,14 +1,16 @@
 import { useEffect, useReducer } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 import { AppContext } from './AppContext';
 import { questions } from '../questions';
 import { appReducer } from './appReducer';
 import { getQuestionNumber } from '../lib/getQuestionNumber';
 
-interface Props {}
+interface Props {
+  children: React.ReactNode;
+}
 
-const AppContextProvider: React.FC<Props> = () => {
+const AppContextProvider: React.FC<Props> = ({ children }) => {
   const { search } = useLocation();
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(appReducer, {}, () => {
@@ -43,7 +45,7 @@ const AppContextProvider: React.FC<Props> = () => {
 
   return (
     <AppContext.Provider value={{ ...state, sendAnswer, handlePlayAgain }}>
-      <Outlet />
+      {children}
     </AppContext.Provider>
   );
 };
