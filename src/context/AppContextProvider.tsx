@@ -35,8 +35,8 @@ const AppContextProvider: React.FC<Props> = ({ children }) => {
     navigate('/results');
   }, [state.completedQuestions]);
 
-  const sendAnswer = (questionNumber: number, answerNumber: 1 | 2 | 3 | 4) => {
-    dispatch({ type: 'SET_ANSWER', payload: { questionNumber, answerNumber } });
+  const sendAnswer = (questionIndex: number, answerNumber: 1 | 2 | 3 | 4) => {
+    dispatch({ type: 'SET_ANSWER', payload: { questionIndex, answerNumber } });
   };
 
   const handlePlayAgain = () => {

@@ -20,10 +20,12 @@ const AnswerBtn: React.FC<Props> = ({
     AppContext
   ) as AppContextType;
 
-  const { selectedAnswer } = questionsData[currentQuestionNumber - 1];
+  const questionIndex = currentQuestionNumber - 1;
+
+  const { selectedAnswer } = questionsData[questionIndex];
 
   const handleClick = () => {
-    sendAnswer(currentQuestionNumber, answerNumber);
+    sendAnswer(questionIndex, answerNumber);
   };
 
   return (
