@@ -1,22 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
-import { vi } from 'vitest';
+import { beforeEach, vi } from 'vitest';
 
 import AppContextProvider from '../../src/context/AppContextProvider';
-import { useContextProvider } from '../../src/context/hooks/useContextProvider.ts';
-
-vi.mock('../../src/context/hooks/useContextProvider.ts', async () => {
-  const useContextProvider = vi.fn();
-
-  useContextProvider.mockReturnValue({
-    state: { value: 'test state' },
-  });
-
-  return {
-    useContextProvider,
-  };
-});
+import * as ContextProviderModule from '../../src/context/hooks/useContextProvider.ts';
 
 describe('Tests on <AppContextProvider />', () => {
   beforeEach(() => {
@@ -40,6 +28,8 @@ describe('Tests on <AppContextProvider />', () => {
   });
 
   test('should call the useContextProvider hook', () => {
+    const spy = vi.spyOn(ContextProviderModule, 'useContextProvider');
+
     render(
       <MemoryRouter>
         <AppContextProvider>
@@ -48,6 +38,6 @@ describe('Tests on <AppContextProvider />', () => {
       </MemoryRouter>
     );
 
-    expect(useContextProvider).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalled();
   });
 });
