@@ -10,8 +10,7 @@ const HomePage = () => {
     AppContext
   ) as AppContextType;
 
-  const { question, answers, correctAnswer, selectedAnswer } =
-    questionsData[currentQuestionNumber - 1];
+  const { question, answers } = questionsData[currentQuestionNumber - 1];
 
   return (
     <main className='main'>
@@ -26,12 +25,7 @@ const HomePage = () => {
       <section className='grid grid-cols-2 gap-5'>
         {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
         {answers.map((answer, i: any) => (
-          <AnswerBtn
-            answerNumber={i + 1}
-            key={answer}
-            correct={correctAnswer === i + 1}
-            selected={selectedAnswer === i + 1}
-          >
+          <AnswerBtn answerNumber={i + 1} key={answer}>
             {answer}
           </AnswerBtn>
         ))}
