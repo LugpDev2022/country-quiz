@@ -1,19 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router';
 import { vi } from 'vitest';
 
 import Navigation from '../../src/components/Navigation';
-import { MemoryRouter } from 'react-router';
 import QuestionBtn from '../../src/components/QuestionBtn';
-
-// Mock useContext from React to control the context values used in the component
-vi.mock('react', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('react')>();
-  return {
-    ...actual,
-    useContext: vi.fn(),
-  };
-});
+import { AppContext } from '../../src/context/AppContext';
+import { AppContextType } from '../../src/types';
 
 // Mock QuestionBtn component
 vi.mock('../../src/components/QuestionBtn', () => {
@@ -23,31 +16,49 @@ vi.mock('../../src/components/QuestionBtn', () => {
 });
 
 describe('<Navigation /> Tests', () => {
+  const value: AppContextType = {
+    currentQuestionNumber: 2,
+    questionsData: [
+      {
+        question: 'Test question',
+        selectedAnswer: null,
+        answers: ['1', '2'],
+        correctAnswer: 2,
+      },
+      {
+        question: 'Test question 2',
+        selectedAnswer: null,
+        answers: ['1', '2'],
+        correctAnswer: 2,
+      },
+    ],
+    completedQuestions: 0,
+    handlePlayAgain: () => {},
+    sendAnswer: () => {},
+  };
+
   beforeEach(() => {
     vi.clearAllMocks();
-    // Reset useContext mock to default state before each test
-    useContext.mockReturnValue({
-      currentQuestionNumber: 2,
-      questionsData: [
-        { question: 'Test question', selectedAnswer: null },
-        { question: 'Test question 2', selectedAnswer: null },
-      ],
-    });
   });
 
   test('should match snapshot', () => {
     const { container } = render(
       <MemoryRouter>
-        <Navigation />
+        <AppContext.Provider value={value}>
+          <Navigation />
+        </AppContext.Provider>
       </MemoryRouter>
     );
+
     expect(container).toMatchSnapshot();
   });
 
   test('should call <QuestionBtn /> with the correct props', () => {
     render(
       <MemoryRouter>
-        <Navigation />
+        <AppContext.Provider value={value}>
+          <Navigation />
+        </AppContext.Provider>
       </MemoryRouter>
     );
 
@@ -65,17 +76,32 @@ describe('<Navigation /> Tests', () => {
   });
 
   test('should mark question button as active when answered', () => {
-    useContext.mockReturnValue({
+    const testValues: AppContextType = {
       currentQuestionNumber: 1,
       questionsData: [
-        { question: 'Test question', selectedAnswer: null },
-        { question: 'Test question 2', selectedAnswer: 2 },
+        {
+          question: 'Test question',
+          selectedAnswer: null,
+          answers: ['1', '2'],
+          correctAnswer: 2,
+        },
+        {
+          question: 'Test question 2',
+          selectedAnswer: 1,
+          answers: ['1', '2'],
+          correctAnswer: 2,
+        },
       ],
-    });
+      completedQuestions: 0,
+      handlePlayAgain: () => {},
+      sendAnswer: () => {},
+    };
 
     render(
       <MemoryRouter>
-        <Navigation />
+        <AppContext.Provider value={testValues}>
+          <Navigation />
+        </AppContext.Provider>
       </MemoryRouter>
     );
 
