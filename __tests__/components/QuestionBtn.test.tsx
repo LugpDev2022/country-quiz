@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router';
 
 import QuestionBtn from '../../src/components/QuestionBtn';
-import { MemoryRouter } from 'react-router';
 
 describe('Tests on <QuestionBtn />', () => {
   test('should render the correct question number', () => {
