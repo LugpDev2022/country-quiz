@@ -5,20 +5,14 @@ import { appReducer } from '../appReducer';
 import { getQuestionNumber } from '../../lib/getQuestionNumber';
 import { questions } from '../../questions';
 
-const initializer = (search: string) => {
-  const currentQuestionNumber = getQuestionNumber(search);
-
-  return {
-    currentQuestionNumber,
-    questionsData: questions,
-    completedQuestions: 0,
-  };
-};
-
 export const useContextProvider = () => {
   const { search } = useLocation();
   const navigate = useNavigate();
-  const [state, dispatch] = useReducer(appReducer, search, initializer);
+  const [state, dispatch] = useReducer(appReducer, {
+    currentQuestionNumber: 1,
+    questionsData: questions,
+    completedQuestions: 0,
+  });
 
   const { completedQuestions, questionsData } = state;
 
